@@ -16,4 +16,8 @@ class Product
     @stock = stock.to_i
   end
 
+  def in_stock?
+    stock > 0
+  end
+
 end

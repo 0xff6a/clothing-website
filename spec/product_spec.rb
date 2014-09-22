@@ -24,4 +24,17 @@ describe Product do
   
   end
 
+  context '#in_stock?' do
+
+    it 'should know if a product is in stock' do
+      expect(product).to be_in_stock
+    end
+
+    it 'should know if a product is in stock' do
+      sold_out = Product.new('Name', 'Cat', 99.0, 0)
+      expect(sold_out).not_to be_in_stock
+    end
+
+  end
+
 end
