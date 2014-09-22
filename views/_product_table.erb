@@ -1,6 +1,5 @@
 <table>
-  Products
-  Products
-  Products
-  Products
+  <% products.each do |product| %>
+    <%= erb :_product, :layout => false, :locals => { :product => product } %>
+  <% end %>
 </table>
