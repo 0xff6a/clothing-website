@@ -37,4 +37,11 @@ describe Product do
 
   end
 
+  context '#formatted_price' do
+
+    it 'should display a price as £xxx.xx' do
+      expect(product.formatted_price).to eq '£99.00'
+    end
+  end
+
 end

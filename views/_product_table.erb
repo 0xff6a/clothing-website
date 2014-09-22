@@ -1,5 +1,13 @@
 <table>
+  <tr>
+    <th>Product Name</th>
+    <th>Category</th>
+    <th>Price</th>
+    <th>Stock</th>
+  </tr>
   <% products.each do |product| %>
-    <%= erb :_product, :layout => false, :locals => { :product => product } %>
+    <tr>
+      <%= erb :_product, :layout => false, :locals => { :product => product } %>
+    </tr>
   <% end %>
 </table>

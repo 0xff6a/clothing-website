@@ -20,4 +20,8 @@ class Product
     stock > 0
   end
 
+  def formatted_price
+    '£' + sprintf('%.2f', price)
+  end
+
 end
