@@ -1,0 +1,14 @@
+.container {
+  width: 80%;
+  float: left;
+  display: inline-block;
+}
+
+.container table {
+  margin: 0 auto;
+}
+
+.cart {
+  float: left;
+  display: inline-block;
+}

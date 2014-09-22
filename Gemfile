@@ -9,4 +9,5 @@ group :development, :test do
   gem 'shotgun'
   gem 'capybara'
   gem 'cucumber-sinatra'
+  gem 'poltergeist'
 end

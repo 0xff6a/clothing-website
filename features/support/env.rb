@@ -7,6 +7,22 @@ require File.join(File.dirname(__FILE__), '..', '..', 'server.rb')
 require 'capybara'
 require 'capybara/cucumber'
 require 'rspec'
+require 'capybara/poltergeist'
+
+#Poltergeist settings to test JS features
+Capybara.javascript_driver = :poltergeist
+Capybara.register_driver :poltergeist do |app|
+    options = {
+        :js_errors => false,
+        :timeout => 120,
+        :debug => false,
+        :phantomjs_options => ['--load-images=no', '--disk-cache=false'],
+        :inspector => true,
+    }
+    Capybara::Poltergeist::Driver.new(app, options)
+end
+Capybara.default_wait_time = 10
+
 
 Capybara.app = ClothingEStore
 
@@ -19,3 +35,5 @@ end
 World do
   ClothingEStoreWorld.new
 end
+
+

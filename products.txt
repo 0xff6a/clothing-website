@@ -4,7 +4,7 @@
 (Flip Flops, Red%Men’s Footwear%£19.00%6)
 (Flip Flops, Blue%Men’s Footwear%£19.00%0)
 (Gold Button Cardigan, Black%Women’s Casualwear%£167.00%6)
-(Cotton Shorts, Medium Red%Women’s%Casualwear%£30.00%5)
+(Cotton Shorts, Medium Red%Women’s Casualwear%£30.00%5)
 (Fine Stripe Short Sleeve Shirt, Grey%Men’s Casualwear%£49.99%9)
 (Fine Stripe Short Sleeve Shirt, Green%Men’s Casualwear%£49.99>£39.99%3)
 (Sharkskin Waistcoat, Charcoal%Men’s Formalwear%£75.00%2)

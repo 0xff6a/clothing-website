@@ -5,15 +5,11 @@ class Product
               :price,
               :stock
 
-  def initialize( name,
-                  category,
-                  price,
-                  stock 
-                )
+  def initialize(name, category, price, stock)
     @name = name
     @category = category
-    @price = price.to_f
-    @stock = stock.to_i
+    @price = price
+    @stock = stock
   end
 
   def in_stock?
