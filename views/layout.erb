@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title>EStore</title>
+    <link href="/css/application.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <header>
+      <%= erb :_navbar %>
+    </header>
+
+    <main>
+    
+      <section class='container'>
+        <%= yield %>
+      <section>
+
+      <aside class='cart'>
+        <%= erb :_shopping_cart %>
+      </aside>
+      
+    </main>
+
+  </body>
+</html>

@@ -4,7 +4,7 @@ Dir[File.join(__dir__, 'lib', '*.rb')].each {|file| require file }
 class ClothingEStore < Sinatra::Base
   
   get '/' do
-    'Hello ClothingEStore!'
+    erb :index
   end
 
   # start the server if ruby file executed directly
