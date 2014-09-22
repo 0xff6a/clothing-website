@@ -1,11 +1,14 @@
 Given(/^I am on the homepage$/) do
-  pending # express the regexp above with the code you wish you had
+  visit '/'
 end
 
 Then(/^I should see a list of products$/) do
-  pending # express the regexp above with the code you wish you had
+  expect(page).to have_content('Product Name')
+  expect(page).to have_content('Almond Toe Court Shoes, Patent Black')
 end
 
 Then(/^their category, price and availability$/) do
-  pending # express the regexp above with the code you wish you had
+  expect(page).to have_content('Women’s Footwear')
+  expect(page).to have_content('£99.00')
+  expect(page).to have_content('5')
 end

@@ -1,6 +1,8 @@
 require 'sinatra/base'
+Dir[File.join(__dir__, 'lib', '*.rb')].each {|file| require file }
 
 class ClothingEStore < Sinatra::Base
+  
   get '/' do
     'Hello ClothingEStore!'
   end
