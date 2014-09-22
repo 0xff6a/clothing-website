@@ -20,4 +20,8 @@ class Product
     '£' + sprintf('%.2f', price)
   end
 
+  def stock_value
+    price * stock
+  end
+
 end

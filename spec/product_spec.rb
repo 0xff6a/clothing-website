@@ -37,11 +37,20 @@ describe Product do
 
   end
 
+  context '#stock_value' do
+
+    it 'should know the value of the stock' do
+      expect(product.stock_value).to eq (5 * 99.0)
+    end
+
+  end
+
   context '#formatted_price' do
 
     it 'should display a price as £xxx.xx' do
       expect(product.formatted_price).to eq '£99.00'
     end
+
   end
 
 end
