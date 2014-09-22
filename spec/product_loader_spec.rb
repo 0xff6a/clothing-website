@@ -17,8 +17,9 @@ describe ProductLoader do
   end
 
   it 'can create a list of products from a data file' do
-    product_data = 
-    expect(File).to receive
+    expect(File).to receive(:read).and_return(data_string)
+    product = ProductLoader.products_from('dummy.txt').first
+    expect(product.price).to eq 540.00
   end
 
 end
