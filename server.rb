@@ -14,11 +14,11 @@ class ClothingEStore < Sinatra::Base
   end
 
   get '/cart/update/:id' do
-    CART.add(product_by(params[:id].to_i).pop_single!)
+    CART.add(find_product(params[:id].to_i).pop_single!)
     redirect '/'
   end
 
-  def product_by(id)
+  def find_product(id)
     PRODUCTS.select{ |product| product.id == id }.first
   end
 
