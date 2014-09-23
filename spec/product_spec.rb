@@ -2,9 +2,13 @@ require 'product'
 
 describe Product do
   
-  let(:product) { Product.new('Name', 'Cat', 99.0, 5) }
+  let(:product) { Product.new(0, 'Name', 'Cat', 99.0, 5) }
 
   context 'initialisation' do
+
+    it 'should have an id' do
+      expect(product.id).to eq 0
+    end
 
     it 'should have a name' do
       expect(product.name).to eq 'Name'
@@ -31,7 +35,7 @@ describe Product do
     end
 
     it 'should know if a product is in stock' do
-      sold_out = Product.new('Name', 'Cat', 99.0, 0)
+      sold_out = Product.new(1,'Name', 'Cat', 99.0, 0)
       expect(sold_out).not_to be_in_stock
     end
 

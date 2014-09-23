@@ -5,8 +5,7 @@ Feature:
 
   @javascript
   Scenario:
-    Given I am on the homepage
-      And I have chosen a product to buy
+    Given I have chosen a product to buy
     When I click "Add to cart"
     Then it will be added to the shopping cart
 

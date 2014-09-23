@@ -1,11 +1,13 @@
 class Product
 
-  attr_reader :name,
+  attr_reader :id,
+              :name,
               :category,
               :price,
               :stock
 
-  def initialize(name, category, price, stock)
+  def initialize(id, name, category, price, stock)
+    @id = id
     @name = name
     @category = category
     @price = price

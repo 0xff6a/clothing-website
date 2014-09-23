@@ -1,13 +1,15 @@
 Given(/^I have chosen a product to buy$/) do
-  pending # express the regexp above with the code you wish you had
+  visit '/'
 end
 
-When(/^I click "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+When(/^I click "(.*?)"$/) do |link_name|
+  first('.product').click_link(link_name)
 end
 
 Then(/^it will be added to the shopping cart$/) do
-  pending # express the regexp above with the code you wish you had
+    expect(page.find('.cart')).to have_content('Almond Toe Court Shoes, Patent Black')
+    expect(page.find('.cart')).to have_content('x1')
+    expect(page.find('.cart')).to have_content('@ £99.00')
 end
 
 Given(/^I have added a product by mistake$/) do

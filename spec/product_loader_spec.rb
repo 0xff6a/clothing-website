@@ -2,10 +2,11 @@ require 'product_loader'
 
 describe ProductLoader do
   
-  let(:data_string) { '(Mid Twist Cut-Out Dress, Pink%Women’s Formalwear%£540.00%5)' }
+  let(:data_string) { '(0%Mid Twist Cut-Out Dress, Pink%Women’s Formalwear%£540.00%5)' }
 
   it 'can parse a product data string' do
-    expect(ProductLoader.parse(data_string)).to eq( [ 'Mid Twist Cut-Out Dress, Pink',
+    expect(ProductLoader.parse(data_string)).to eq( [ '0', 
+                                                      'Mid Twist Cut-Out Dress, Pink',
                                                       'Women’s Formalwear',
                                                       '£540.00',
                                                       '5' ] )

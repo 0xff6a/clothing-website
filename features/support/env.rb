@@ -21,7 +21,7 @@ Capybara.register_driver :poltergeist do |app|
     }
     Capybara::Poltergeist::Driver.new(app, options)
 end
-Capybara.default_wait_time = 10
+Capybara.default_wait_time = 5
 
 
 Capybara.app = ClothingEStore

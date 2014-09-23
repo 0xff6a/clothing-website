@@ -24,10 +24,11 @@ class ProductLoader
 
     def product_data_to_a(parsed_product_data)
       [
-        parsed_product_data[0],
+        parsed_product_data[0].to_i,
         parsed_product_data[1],
-        parsed_product_data[2].delete('£').to_f,
-        parsed_product_data[3].to_i
+        parsed_product_data[2],
+        parsed_product_data[3].delete('£').to_f,
+        parsed_product_data[4].to_i
       ]
     end
 
