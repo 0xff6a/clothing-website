@@ -1,10 +1,7 @@
 class Product
 
-  attr_reader :id,
-              :name,
-              :category,
-              :price,
-              :stock
+  attr_reader   :id, :name, :category, :price
+  attr_accessor :stock
 
   def initialize(id, name, category, price, stock)
     @id = id
@@ -24,6 +21,15 @@ class Product
 
   def stock_value
     price * stock
+  end
+
+  def pop_single!
+    set_stock(stock - 1).clone.set_stock(1)
+  end
+
+  def set_stock(value)
+    @stock = value
+    self
   end
 
 end

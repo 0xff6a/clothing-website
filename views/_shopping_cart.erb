@@ -1,9 +1,15 @@
 <table class='cart_table'>
+  <h3>Shopping Cart</h3>
   <tr>
-    <th><h3>Shopping Cart</h3></th>
+    <th>Product Name</th>
+    <th>Quantity</th>
+    <th>Price</th>
   <tr>
-  <tr><td>Product</br></td></tr>
-   <tr><td>Product</br></td></tr>
-  <tr><td>Product</br></td></tr>
-   <tr><td>Product</br></td></tr>
+  <% @cart.products.each do |product| %>
+    <tr>
+      <td><%= product.name %></td>
+      <td>x<%= product.stock %></td>
+      <td>@ <%= product.formatted_price %></td>
+    </tr>
+  <% end %>
 </table>
