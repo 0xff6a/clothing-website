@@ -28,8 +28,12 @@ class ShoppingCart
   end
 
   def total
-    products.map(&:stock_value).inject(:+)
+    products.map(&:stock_value).inject(0, :+)
   end 
+
+  def formatted_total
+    '£' + sprintf('%.2f', total)
+  end
 
   private
 

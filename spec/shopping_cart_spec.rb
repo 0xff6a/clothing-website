@@ -28,13 +28,6 @@ describe ShoppingCart do
 
   end
 
-  context '#pop_product' do
-
-    xit 'should return a single stock product from those in the cart' do
-    end
-
-  end
-
   context '#remove' do
 
     it 'a product can be removed' do
