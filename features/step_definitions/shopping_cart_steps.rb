@@ -35,19 +35,20 @@ Then(/^I can view the total price for products in my cart$/) do
 end
 
 Given(/^a product is out of stock$/) do
-  pending # express the regexp above with the code you wish you had
+  visit '/'
+  3.times { first('.product').click_link('Add to cart') }
 end
 
 When(/^I try to add it to my cart$/) do
-  pending # express the regexp above with the code you wish you had
+  first('.product').click_link('Add to cart')
 end
 
 Then(/^I receive an error message$/) do
-  pending # express the regexp above with the code you wish you had
+  expect(page).to have_content('The selected product is out of stock')
 end
 
 Then(/^the product is not added to the cart$/) do
-  pending # express the regexp above with the code you wish you had
+  expect(_shopping_cart).to have_content('x5')
 end
 
 def _shopping_cart

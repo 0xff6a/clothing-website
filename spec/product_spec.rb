@@ -66,4 +66,13 @@ describe Product do
 
   end
 
+  context '#push_single!' do
+
+    it 'return a copy of the product and increments the stock of the original' do
+      expect(product.push_single!.stock).to eq 1
+      expect(product.stock).to eq 6
+    end
+
+  end
+
 end

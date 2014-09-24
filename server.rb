@@ -1,7 +1,12 @@
 require 'sinatra/base'
+require 'rack-flash'
+
 Dir[File.join(__dir__, 'lib', '*.rb')].each {|file| require file }
 
 class ClothingEStore < Sinatra::Base
+
+  enable :sessions
+  use Rack::Flash
 
   DATA_FILE = 'products.txt'
   PRODUCTS = ProductLoader.products_from(DATA_FILE)
@@ -10,16 +15,26 @@ class ClothingEStore < Sinatra::Base
   get '/' do
     @products = PRODUCTS
     @cart = CART
+    
     erb :index
   end
 
   get '/cart/update/:id' do
-    CART.add(find_product(params[:id].to_i).pop_single!)
+    
+    product = find_product(params[:id].to_i)
+
+    if product.in_stock?
+      CART.add(product.pop_single!)
+    else
+      flash[:error] = 'The selected product is out of stock'
+    end
+
     redirect '/'
   end
 
   get '/cart/remove/:id' do
     CART.remove(find_product(params[:id].to_i).push_single!)
+    
     redirect '/'
   end
 

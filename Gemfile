@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 gem 'sinatra'
 gem 'thin'
+gem 'rack-flash3'
 
 group :development, :test do
   gem 'codeclimate-test-reporter'
