@@ -69,4 +69,12 @@ describe ShoppingCart do
 
   end
 
+  xcontext '#apply_voucher' do
+
+    it 'can receive a voucher to apply a discount' do
+
+    end
+
+  end
+
 end

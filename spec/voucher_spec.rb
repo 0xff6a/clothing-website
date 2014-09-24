@@ -9,7 +9,7 @@ describe Voucher do
   context 'intialisation' do
     
     it 'should have an id' do
-      expect(voucher).id to eq 0
+      expect(voucher.id).to eq 0
     end
 
     it 'should have a discount' do
