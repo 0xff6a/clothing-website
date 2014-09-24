@@ -59,4 +59,14 @@ describe ShoppingCart do
 
   end
 
+  context '#has_footwear_item' do
+
+    it 'should know if the shopping cart contains products in the footwear category' do
+      shoe = double Product, id: 1, stock: 5, category: "Men's Footwear"
+      cart.add(shoe)
+      expect(cart).to have_footwear_item
+    end
+
+  end
+
 end

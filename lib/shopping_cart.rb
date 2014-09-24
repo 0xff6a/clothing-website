@@ -19,6 +19,10 @@ class ShoppingCart
     product_ids.include?(product.id)
   end
 
+  def has_footwear_item?
+    products.map(&:category).any?{ |cat| cat.downcase =~ /footwear/}
+  end
+
   def product_ids
     products.map(&:id)
   end
