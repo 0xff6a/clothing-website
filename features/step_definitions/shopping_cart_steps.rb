@@ -13,16 +13,21 @@ Then(/^it will be added to the shopping cart$/) do
 end
 
 Given(/^I have added a product by mistake$/) do
-  pending # express the regexp above with the code you wish you had
+  visit '/'
 end
 
+When(/^I click the remove link$/) do
+ click_link '-'
+end
+
+
 Then(/^it will be removed from the shopping cart$/) do
-  pending # express the regexp above with the code you wish you had
+  expect(_shopping_cart).not_to have_content('Almond Toe Court Shoes, Patent Black')
 end
 
 Given(/^I have added products to my cart$/) do
   visit '/'
-  first('.product').click_link('Add to cart')
+  2.times { first('.product').click_link('Add to cart') }
 end
 
 Then(/^I can view the total price for products in my cart$/) do

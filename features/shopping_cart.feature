@@ -12,13 +12,13 @@ Feature:
   @javascript
   Scenario:
     Given I have added a product by mistake
-    When I click "Remove from cart"
+    When I click the remove link
     Then it will be removed from the shopping cart
 
   @javascript
   Scenario:
     Given I have added products to my cart
-    Then I can view the total price for products in my cart
+    Then I can view the total price for products in my cart  
 
   @javascript
   Scenario:
