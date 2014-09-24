@@ -23,11 +23,11 @@ class Product
     price * stock
   end
 
-  def pop_single!
+  def pop_single
     set_stock(stock - 1).clone.set_stock(1)
   end
 
-  def push_single!
+  def push_single
     set_stock(stock + 1).clone.set_stock(1)
   end
 

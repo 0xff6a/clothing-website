@@ -57,19 +57,19 @@ describe Product do
 
   end
 
-  context '#pop_single!' do
+  context '#pop_single' do
 
     it 'return a copy of the product and decrements the stock of the original' do
-      expect(product.pop_single!.stock).to eq 1
+      expect(product.pop_single.stock).to eq 1
       expect(product.stock).to eq 4
     end
 
   end
 
-  context '#push_single!' do
+  context '#push_single' do
 
     it 'return a copy of the product and increments the stock of the original' do
-      expect(product.push_single!.stock).to eq 1
+      expect(product.push_single.stock).to eq 1
       expect(product.stock).to eq 6
     end
 

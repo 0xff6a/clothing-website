@@ -20,7 +20,6 @@ When(/^I click the remove link$/) do
  click_link '-'
 end
 
-
 Then(/^it will be removed from the shopping cart$/) do
   expect(_shopping_cart).not_to have_content('Almond Toe Court Shoes, Patent Black')
 end

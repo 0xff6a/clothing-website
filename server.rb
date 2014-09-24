@@ -20,11 +20,10 @@ class ClothingEStore < Sinatra::Base
   end
 
   get '/cart/update/:id' do
-    
-    product = find_product(params[:id].to_i)
+    product = find_product(params[:id])
 
     if product.in_stock?
-      CART.add(product.pop_single!)
+      CART.add(product.pop_single)
     else
       flash[:error] = 'The selected product is out of stock'
     end
@@ -33,13 +32,13 @@ class ClothingEStore < Sinatra::Base
   end
 
   get '/cart/remove/:id' do
-    CART.remove(find_product(params[:id].to_i).push_single!)
+    CART.remove(find_product(params[:id]).push_single)
     
     redirect '/'
   end
 
   def find_product(id)
-    PRODUCTS.select{ |product| product.id == id }.first
+    PRODUCTS.select{ |product| product.id == id.to_i }.first
   end
 
   # start the server if ruby file executed directly
