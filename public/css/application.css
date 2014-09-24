@@ -12,3 +12,7 @@
   float: left;
   display: inline-block;
 }
+
+.alert {
+  height: 50px;
+}
