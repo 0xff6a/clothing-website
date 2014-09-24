@@ -9,12 +9,21 @@ class ClothingEStore < Sinatra::Base
   use Rack::Flash
 
   DATA_FILE = 'products.txt'
+  
   PRODUCTS = ProductLoader.products_from(DATA_FILE)
   CART = ShoppingCart.new
+  
+  VOUCHERS = 
+  [
+    Voucher.new(0, 5.0, 'for being a loyal customer'),
+    Voucher.new(1, 10.0, 'if you spend over £50', 'total > 50'),
+    Voucher.new(2, 15.0, 'if you spend over £75 on footwear' , 'total > 75', 'has_footwear_item?' )
+  ]
   
   get '/' do
     @products = PRODUCTS
     @cart = CART
+    @vouchers = VOUCHERS
     
     erb :index
   end
@@ -34,6 +43,11 @@ class ClothingEStore < Sinatra::Base
   get '/cart/remove/:id' do
     CART.remove(find_product(params[:id]).push_single)
     
+    redirect '/'
+  end
+
+  get '/voucher/redeem/:id' do
+
     redirect '/'
   end
 

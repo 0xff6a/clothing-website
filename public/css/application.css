@@ -1,5 +1,5 @@
 .container {
-  width: 60%;
+  width: 700px;
   float: left;
   display: inline-block;
 }
@@ -9,6 +9,13 @@
 }
 
 .cart {
+  width: 450px;
+  float: left;
+  display: inline-block;
+}
+
+.vouchers {
+  width: 450px;
   float: left;
   display: inline-block;
 }

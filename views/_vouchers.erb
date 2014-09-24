@@ -1,0 +1,9 @@
+<h3>Vouchers</h3>
+<ul>
+<% @vouchers.each do |voucher| %>
+  <li class='voucher'>
+    <%= voucher.formatted_discount %> off <%= voucher.description %>
+    <a href='voucher/redeem/<%= voucher.id %>'>Redeem</a>
+  </li>
+<% end %>
+</ul>
