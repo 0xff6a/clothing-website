@@ -19,7 +19,7 @@ class ClothingEStore < Sinatra::Base
   end
 
   get '/cart/remove/:id' do
-    CART.remove(find_product(params[:id].to_i).pop_single!)
+    CART.remove(find_product(params[:id].to_i).push_single!)
     redirect '/'
   end
 

@@ -51,7 +51,7 @@ class ShoppingCart
   end
 
   def delete(product)
-    @products.delete(product)
+    @products.delete(product_by(product.id))
   end
 
   def add_new(product)
