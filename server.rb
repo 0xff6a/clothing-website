@@ -10,26 +10,28 @@ class ClothingEStore < Sinatra::Base
 
   DATA_FILE = 'products.txt'
   
-  PRODUCTS = ProductLoader.products_from(DATA_FILE)
-  CART = ShoppingCart.new
-  
-  VOUCHERS = 
+  product_data = ProductLoader.products_from(DATA_FILE)
+  voucher_data = 
   [
     Voucher.new(0, 5.0, 'for being a loyal customer'),
     Voucher.new(1, 10.0, 'if you spend over £50', 'total > 50'),
     Voucher.new(2, 15.0, 'if you spend over £75 on footwear' , 'total > 75', 'has_footwear_item?' )
   ]
-  
+
+  CART     = ShoppingCart.new
+  PRODUCTS = DatabaseTable.new( product_data )
+  VOUCHERS = DatabaseTable.new( voucher_data )
+
   get '/' do
-    @products = PRODUCTS
-    @cart = CART
-    @vouchers = VOUCHERS
+    @products = PRODUCTS.rows
+    @cart     = CART
+    @vouchers = VOUCHERS.rows
     
     erb :index
   end
 
   get '/cart/update/:id' do
-    product = find_product(params[:id])
+    product = PRODUCTS.find(params[:id])
 
     if product.in_stock?
       CART.add(product.pop_single)
@@ -41,7 +43,9 @@ class ClothingEStore < Sinatra::Base
   end
 
   get '/cart/remove/:id' do
-    CART.remove(find_product(params[:id]).push_single)
+    product = PRODUCTS.find(params[:id])
+
+    CART.remove(product.push_single)
     
     redirect '/'
   end
@@ -50,10 +54,6 @@ class ClothingEStore < Sinatra::Base
     CART.apply_voucher(VOUCHERS[params[:id]].to_i)
 
     redirect '/'
-  end
-
-  def find_product(id)
-    PRODUCTS.select{ |product| product.id == id.to_i }.first
   end
 
   # start the server if ruby file executed directly

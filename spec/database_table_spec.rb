@@ -2,7 +2,7 @@ require 'database_table'
 
 describe DatabaseTable do
   
-  let(:p1)    { double Product, id: 0, stock: 5       }
+  let(:p1)    { double Product, id: 0, stock: 7       }
   let(:p2)    { double Product, id: 1, stock: 7       }
   let(:data)  { DatabaseTable.new([p1,p2])            }
 
@@ -14,15 +14,19 @@ describe DatabaseTable do
 
   end
 
-  context '#find_by' do
+  context '#find' do
 
     it 'can find an object by id attribute' do
       expect(p1).to receive(:id)
-      expect(data.find_by(:id, 0)).to eq p1
+      expect(data.find(0)).to eq p1
     end
 
-    it 'can find an object by other unique attributes' do
-      expect(data.find_by(:stock, 7)).to eq p2
+  end
+
+  context '#where' do
+
+    it 'can find an object by other attributes' do
+      expect(data.where(:stock, 7)).to eq [p1, p2]
     end
 
   end

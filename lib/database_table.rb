@@ -6,8 +6,12 @@ class DatabaseTable
     @rows = data
   end
 
-  def find_by(attribute, value)
-    rows.select{ |product| product.send(attribute) == value }.first
+  def find(id)
+    where(:id, id.to_i).first
+  end
+
+  def where(attribute, value)
+    rows.select{ |product| product.send(attribute) == value }
   end
 
 end
