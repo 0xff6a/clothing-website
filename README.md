@@ -1,11 +1,7 @@
 TODO
 
-- Add redeemed? to voucher
-- Do not display vouchers that have been redeemed
-- Do not allow voucher to take total below 0
-- Remove ineligible discounts as items removed from cart (optional)
-
+- Redeem vouchers locks shopping cart
+- Click finish shopping -> display voucher box and let's you apply them
 - Review public vs private methods (notably loader class)
-- Load vouchers in from file
-- examine naming in loader class
+
 

@@ -11,12 +11,12 @@ class ClothingEStore < Sinatra::Base
   product_file = 'data_files/products.txt'
   voucher_file = 'data_files/vouchers.txt'
   
-  product_data = ObjectLoader.products_from(product_file)
-  voucher_data = ObjectLoader.vouchers_from(voucher_file)
+  product_array = ObjectLoader.products_from(product_file)
+  voucher_array = ObjectLoader.vouchers_from(voucher_file)
 
   CART     = ShoppingCart.new
-  PRODUCTS = DatabaseTable.new( product_data )
-  VOUCHERS = DatabaseTable.new( voucher_data )
+  PRODUCTS = DatabaseTable.new( product_array )
+  VOUCHERS = DatabaseTable.new( voucher_array )
 
   get '/' do
     @products = PRODUCTS.all

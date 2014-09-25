@@ -21,10 +21,6 @@ class ShoppingCart
     products.map(&:category).any?{ |cat| cat.downcase =~ /footwear/}
   end
 
-  def product_by(id)
-    products.select{ |product| product.id == id }.first
-  end
-
   def total
     raw_total - discount
   end 
@@ -39,6 +35,10 @@ class ShoppingCart
 
   private
 
+  def product_by(id)
+    products.select{ |product| product.id == id }.first
+  end
+  
   def add_to_stock(product)
     product_by(product.id).stock += product.stock
   end
