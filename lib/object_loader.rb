@@ -6,7 +6,7 @@ class ObjectLoader
   class << self 
     
     def products_from(filename)
-      create_objects_from(filename, :product)
+      create_objects_from(filename, :product)                             
     end
 
     def vouchers_from(filename)
@@ -31,28 +31,28 @@ class ObjectLoader
       case object_type
 
       when :product
-        Product.new(*product_data_to_a(parsed_data))
+        Product.new(*product_data_to_args(parsed_data))
       when :voucher
-        Voucher.new(*voucher_data_to_a(parsed_data))
+        Voucher.new(*voucher_data_to_args(parsed_data))
       end
     end
 
-    def product_data_to_a(parsed_product_data)
+    def product_data_to_args(data)
       [
-        parsed_product_data[0].to_i,
-        parsed_product_data[1],
-        parsed_product_data[2],
-        parsed_product_data[3].delete('£').to_f,
-        parsed_product_data[4].to_i
+        data[0].to_i,
+        data[1],
+        data[2],
+        data[3].delete('£').to_f,
+        data[4].to_i
       ]
     end
 
-    def voucher_data_to_a(parsed_voucher_data)
+    def voucher_data_to_args(data)
       [
-        parsed_voucher_data[0].to_i,
-        parsed_voucher_data[1].to_f,
-        parsed_voucher_data[2],
-        parsed_voucher_data[3].to_s.split(',')
+        data[0].to_i,
+        data[1].to_f,
+        data[2],
+        data[3].to_s.split(',')
       ]
     end
 

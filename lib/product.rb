@@ -31,6 +31,8 @@ class Product
     set_stock(stock + 1).clone.set_stock(1)
   end
 
+  protected
+
   def set_stock(value)
     @stock = value
     self
