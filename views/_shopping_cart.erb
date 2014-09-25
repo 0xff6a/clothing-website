@@ -7,12 +7,7 @@
   <tr>
   <% @cart.products.each do |product| %>
     <tr>
-      <td><%= product.name %></td>
-      <td>x<%= product.stock %></td>
-      <td>@ <%= product.formatted_price %></td>
-      <td>
-        <a href='/cart/remove/<%= product.id %>'>-</a>
-      </td>
+      <%= erb :_shopping_cart_item, :layout => false, :locals => { :product => product } %>
     </tr>
   <% end %>
   <tr>

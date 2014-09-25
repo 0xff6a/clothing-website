@@ -6,7 +6,7 @@ class Voucher
     @id = id
     @discount = discount
     @description = description
-    @conditions = conditions
+    @conditions = conditions.flatten(1)
   end
 
   def valid_for?(shopping_cart)

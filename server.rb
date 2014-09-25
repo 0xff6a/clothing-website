@@ -8,15 +8,11 @@ class ClothingEStore < Sinatra::Base
   enable :sessions
   use Rack::Flash
 
-  DATA_FILE = 'products.txt'
+  product_file = 'data_files/products.txt'
+  voucher_file = 'data_files/vouchers.txt'
   
-  product_data = ProductLoader.products_from(DATA_FILE)
-  voucher_data = 
-  [
-    Voucher.new(0, 5.0, 'for being a loyal customer'),
-    Voucher.new(1, 10.0, 'if you spend over £50', 'total > 50'),
-    Voucher.new(2, 15.0, 'if you spend over £75 on footwear' , 'total > 75', 'has_footwear_item?' )
-  ]
+  product_data = ObjectLoader.products_from(product_file)
+  voucher_data = ObjectLoader.vouchers_from(voucher_file)
 
   CART     = ShoppingCart.new
   PRODUCTS = DatabaseTable.new( product_data )
