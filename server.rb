@@ -49,7 +49,9 @@ class ClothingEStore < Sinatra::Base
   get '/voucher/redeem/:id' do
     voucher = VOUCHERS.find(params[:id])
     
-    voucher.apply_to(CART)
+    if voucher.apply_to(CART) == :fail
+      flash[:error] = 'The selected voucher is not valid'
+    end
 
     redirect '/'
   end

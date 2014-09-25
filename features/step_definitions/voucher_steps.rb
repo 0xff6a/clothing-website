@@ -11,9 +11,9 @@ Then(/^I can see how much I have saved$/) do
 end
 
 When(/^I apply a invalid voucher$/) do
-  pending # express the regexp above with the code you wish you had
+  page.all('.voucher')[2].click_link('Redeem')
 end
 
 Then(/^I will receive an alert that my voucher is invalid$/) do
-  pending # express the regexp above with the code you wish you had
+  expect(page).to have_content('The selected voucher is not valid')
 end
