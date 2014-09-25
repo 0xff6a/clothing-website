@@ -14,4 +14,6 @@ class DatabaseTable
     rows.select{ |product| product.send(attribute) == value }
   end
 
+  alias_method :all, :rows
+
 end

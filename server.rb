@@ -23,9 +23,9 @@ class ClothingEStore < Sinatra::Base
   VOUCHERS = DatabaseTable.new( voucher_data )
 
   get '/' do
-    @products = PRODUCTS.rows
+    @products = PRODUCTS.all
     @cart     = CART
-    @vouchers = VOUCHERS.rows
+    @vouchers = VOUCHERS.all
     
     erb :index
   end
