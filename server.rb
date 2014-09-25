@@ -51,7 +51,9 @@ class ClothingEStore < Sinatra::Base
   end
 
   get '/voucher/redeem/:id' do
-    CART.apply_voucher(VOUCHERS[params[:id]].to_i)
+    voucher = VOUCHERS.find(params[:id])
+    
+    CART.redeem(voucher)
 
     redirect '/'
   end

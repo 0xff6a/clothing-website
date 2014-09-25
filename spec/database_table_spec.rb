@@ -2,9 +2,9 @@ require 'database_table'
 
 describe DatabaseTable do
   
-  let(:p1)    { double Product, id: 0, stock: 7       }
-  let(:p2)    { double Product, id: 1, stock: 7       }
-  let(:data)  { DatabaseTable.new([p1,p2])            }
+  let(:p1)    { double Product, id: 0, stock: 7  }
+  let(:p2)    { double Product, id: 1, stock: 7  }
+  let(:data)  { DatabaseTable.new([p1,p2])       }
 
   context 'initialisation' do
 

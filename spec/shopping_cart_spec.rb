@@ -11,6 +11,11 @@ describe ShoppingCart do
     it 'should have no products initially' do
       expect(cart.products).to eq []
     end 
+
+    it 'should have no discount initially' do
+      expect(cart.discount).to eq 0
+    end
+
   end
 
   context '#add' do
@@ -65,14 +70,6 @@ describe ShoppingCart do
       shoe = double Product, id: 1, stock: 5, category: "Men's Footwear"
       cart.add(shoe)
       expect(cart).to have_footwear_item
-    end
-
-  end
-
-  xcontext '#apply_voucher' do
-
-    it 'can receive a voucher to apply a discount' do
-
     end
 
   end

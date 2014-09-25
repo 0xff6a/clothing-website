@@ -1,9 +1,11 @@
 class ShoppingCart
 
-  attr_reader :products
+  attr_reader   :products
+  attr_accessor :discount
 
   def initialize
     @products = []
+    @discount = 0
   end
 
   def add(product)
@@ -32,8 +34,12 @@ class ShoppingCart
   end
 
   def total
-    products.map(&:stock_value).inject(0, :+)
+    raw_total - discount
   end 
+
+  def raw_total
+    products.map(&:stock_value).inject(0, :+)
+  end
 
   def formatted_total
     '£' + sprintf('%.2f', total)
