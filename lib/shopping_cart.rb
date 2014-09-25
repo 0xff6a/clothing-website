@@ -45,6 +45,10 @@ class ShoppingCart
     '£' + sprintf('%.2f', total)
   end
 
+  def formatted_discount
+    '£' + sprintf('%.2f', discount)
+  end
+
   private
 
   def add_to_stock(product)
