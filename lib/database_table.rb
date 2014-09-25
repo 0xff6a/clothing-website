@@ -6,4 +6,8 @@ class DatabaseTable
     @rows = data
   end
 
+  def find_by(attribute, value)
+    rows.select{ |product| product.send(attribute) == value }.first
+  end
+
 end
