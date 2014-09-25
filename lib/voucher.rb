@@ -14,7 +14,7 @@ class Voucher
   end
 
   def apply_to(shopping_cart)
-    apply_discount(shopping_cart) if valid_for?(shopping_cart)
+    return apply_discount(shopping_cart) if valid_for?(shopping_cart)
     :fail
   end
 

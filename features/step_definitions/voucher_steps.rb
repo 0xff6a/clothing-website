@@ -11,6 +11,7 @@ Then(/^I can see how much I have saved$/) do
 end
 
 When(/^I apply a invalid voucher$/) do
+  5.times { click_link '-' }
   page.all('.voucher')[2].click_link('Redeem')
 end
 

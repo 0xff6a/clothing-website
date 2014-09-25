@@ -17,16 +17,7 @@ describe DatabaseTable do
   context '#find' do
 
     it 'can find an object by id attribute' do
-      expect(p1).to receive(:id)
       expect(data.find(0)).to eq p1
-    end
-
-  end
-
-  context '#where' do
-
-    it 'can find an object by other attributes' do
-      expect(data.where(:stock, 7)).to eq [p1, p2]
     end
 
   end

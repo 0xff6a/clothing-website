@@ -8,15 +8,15 @@ class ClothingEStore < Sinatra::Base
   enable :sessions
   use Rack::Flash
 
-  product_file = 'data_files/products.txt'
-  voucher_file = 'data_files/vouchers.txt'
+  product_file  = 'data_files/products.txt'
+  voucher_file  = 'data_files/vouchers.txt'
   
   product_array = ObjectLoader.products_from(product_file)
   voucher_array = ObjectLoader.vouchers_from(voucher_file)
 
-  CART     = ShoppingCart.new
-  PRODUCTS = DatabaseTable.new( product_array )
-  VOUCHERS = DatabaseTable.new( voucher_array )
+  CART          = ShoppingCart.new
+  PRODUCTS      = DatabaseTable.new( product_array )
+  VOUCHERS      = DatabaseTable.new( voucher_array )
 
   get '/' do
     @products = PRODUCTS.all
