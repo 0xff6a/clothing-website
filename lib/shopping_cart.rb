@@ -1,4 +1,8 @@
+require_relative 'formatter'
+
 class ShoppingCart
+
+  include Formatter
 
   attr_reader   :products
   attr_accessor :discount
@@ -26,11 +30,11 @@ class ShoppingCart
   end 
 
   def formatted_total
-    format(total)
+    format_ccy(total)
   end
 
   def formatted_discount
-    format(discount)
+    format_ccy(discount)
   end
 
   private
@@ -74,10 +78,6 @@ class ShoppingCart
 
   def contains?(product)
     product_ids.include?(product.id)
-  end
-
-  def format(attribute)
-    '£' + sprintf('%.2f', attribute)
   end
 
 end

@@ -1,4 +1,8 @@
+require_relative 'formatter'
+
 class Voucher
+
+  include Formatter
 
   attr_reader :id, :discount, :description, :conditions
 
@@ -19,7 +23,7 @@ class Voucher
   end
 
   def formatted_discount
-    '£' + sprintf('%.2f', discount)
+    format_ccy(discount)
   end
 
   private

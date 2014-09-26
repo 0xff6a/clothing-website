@@ -1,4 +1,8 @@
+require_relative 'formatter'
+
 class Product
+
+  include Formatter
 
   attr_reader   :id, :name, :category, :price
   attr_accessor :stock
@@ -16,7 +20,7 @@ class Product
   end
 
   def formatted_price
-    '£' + sprintf('%.2f', price)
+    format_ccy(price)
   end
 
   def stock_value

@@ -23,6 +23,15 @@
         null,
         null
       ],
+      "/Users/jeremyfox/Ruby/TechTests/clothing-website/lib/formatter.rb": [
+        1,
+        null,
+        1,
+        2,
+        null,
+        null,
+        null
+      ],
       "/Users/jeremyfox/Ruby/TechTests/clothing-website/lib/object_loader.rb": [
         1,
         1,
@@ -90,6 +99,10 @@
         1,
         null,
         1,
+        null,
+        1,
+        null,
+        1,
         1,
         null,
         1,
@@ -135,6 +148,10 @@
         1,
         null,
         1,
+        null,
+        1,
+        null,
+        1,
         9,
         9,
         9,
@@ -163,6 +180,10 @@
         null
       ],
       "/Users/jeremyfox/Ruby/TechTests/clothing-website/lib/shopping_cart.rb": [
+        1,
+        null,
+        1,
+        null,
         1,
         null,
         1,
@@ -241,13 +262,9 @@
         11,
         null,
         null,
-        1,
-        0,
-        null,
-        null,
         null
       ]
     },
-    "timestamp": 1411726155
+    "timestamp": 1411751153
   }
 }
