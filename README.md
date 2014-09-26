@@ -1,4 +1,10 @@
+Repository is a work in progress
+================================
+
 TODO
+----
+
+Ruby
 
 - Redeem vouchers locks shopping cart
 - Click finish shopping -> display voucher box and let's you apply them
