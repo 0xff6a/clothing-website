@@ -13,41 +13,41 @@ $(document).ready(function () {
 
     $.get(this.href, function(response) {
       
-      if (response.status == 'ok') {
+      if (response.status === 'ok') {
         applyDiscount(response.discount, response.total);
         disableVoucher(voucherLink);
       } else {
         displayVoucherError();
-      };
+      }
     
     });
-    
+
   });
 
   function displayVouchers() {
     $('.vouchers').removeClass('hidden');
-  };
+  }
 
   function disableVoucher(voucherLink) {
     voucherLink.replaceWith("<em class='redeemed_msg'>Redeemed</em>");
-  };
+  }
 
   function disableShoppingLinks() {
     $('.add_product').remove();
     $('.remove_product').remove();
-  };
+  }
 
   function applyDiscount(discount, total) {
     $('#total').text(formatCCY(total));
     $('#text_total').text('You saved ' + formatCCY(discount));
-  };
+  }
 
   function displayVoucherError() {
     $('.alert').empty().append("<h3 class='alert_message'>The selected voucher is not valid</h3>");
-  };
+  }
 
   function formatCCY(value) {
-    return '£' + Number(value).toFixed(2);
+    return ('£' + Number(value).toFixed(2));
   };
 
 });
