@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require "sinatra/json"
 require 'rack-flash'
 
 Dir[File.join(__dir__, 'lib', '*.rb')].each {|file| require file }
@@ -49,11 +50,19 @@ class ClothingEStore < Sinatra::Base
   get '/voucher/redeem/:id' do
     voucher = VOUCHERS.find(params[:id])
     
-    if voucher.apply_to(CART) == :fail
-      flash[:error] = 'The selected voucher is not valid'
+    status = voucher.apply_to(CART)
+
+    if status == :fail
+      json({ status: 'fail' })
+    else
+      json({ status: 'ok', discount: voucher.discount, total: CART.total })
     end
 
-    redirect '/'
+    # if voucher.apply_to(CART) == :fail
+    #   flash[:error] = 'The selected voucher is not valid'
+    # end
+
+    # redirect '/'
   end
 
   # start the server if ruby file executed directly
