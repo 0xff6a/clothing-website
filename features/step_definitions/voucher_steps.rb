@@ -45,3 +45,11 @@ end
 Then(/^I will receive an alert that my voucher is invalid$/) do
   expect(page).to have_content('The selected voucher is not valid')
 end
+
+Given(/^I have applied a valid voucher$/) do
+  visit '/'
+end
+
+Then(/^I cannot apply it again$/) do
+  expect(first('.voucher')).not_to have_css('a')
+end

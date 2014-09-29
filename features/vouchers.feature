@@ -29,3 +29,8 @@ Feature:
     When I apply a invalid voucher
     Then I will receive an alert that my voucher is invalid
 
+  @javascript
+  Scenario: Repeating vouchers
+    Given I have applied a valid voucher
+    Then I cannot apply it again 
+
