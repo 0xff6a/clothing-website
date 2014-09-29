@@ -55,7 +55,7 @@ class ClothingEStore < Sinatra::Base
     if status == :fail
       json({ status: 'fail' })
     else
-      json({ status: 'ok', discount: voucher.discount, total: CART.total })
+      json({ status: 'ok', discount: CART.discount, total: CART.total })
     end
 
     # if voucher.apply_to(CART) == :fail
