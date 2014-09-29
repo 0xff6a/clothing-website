@@ -11,21 +11,16 @@ class ClothingEStore < Sinatra::Base
     enable :sessions
     use Rack::Flash
 
-    PRODUCT_FILE  = 'data_files/products.txt'
-    VOUCHER_FILE  = 'data_files/vouchers.txt'
-  end
+    product_file  = 'data_files/products.txt'
+    voucher_file  = 'data_files/vouchers.txt'
 
-  def self.product_array
-    ObjectLoader.products_from(PRODUCT_FILE)
-  end
+    product_array = ObjectLoader.products_from(product_file)
+    voucher_array = ObjectLoader.vouchers_from(voucher_file)
 
-  def self.voucher_array
-    ObjectLoader.vouchers_from(VOUCHER_FILE)
+    CART          = ShoppingCart.new
+    PRODUCTS      = DatabaseTable.new(product_array)
+    VOUCHERS      = DatabaseTable.new(voucher_array)
   end
-
-  CART          = ShoppingCart.new
-  PRODUCTS      = DatabaseTable.new(product_array)
-  VOUCHERS      = DatabaseTable.new(voucher_array)
 
   get '/' do
     @products = PRODUCTS.all
