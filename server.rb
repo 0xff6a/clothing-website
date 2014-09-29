@@ -57,12 +57,6 @@ class ClothingEStore < Sinatra::Base
     else
       json({ status: 'ok', discount: CART.discount, total: CART.total })
     end
-
-    # if voucher.apply_to(CART) == :fail
-    #   flash[:error] = 'The selected voucher is not valid'
-    # end
-
-    # redirect '/'
   end
 
   # start the server if ruby file executed directly
