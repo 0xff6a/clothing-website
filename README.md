@@ -43,7 +43,7 @@ $ bundle
 $ cucumber
 ```
 
-**Unit Tests***
+**Unit Tests**
 ```shell
 $ bundle
 $ rspec

@@ -1,23 +1,26 @@
 require 'sinatra/base'
-require "sinatra/json"
+require 'sinatra/json'
+require 'sinatra/config_file'
 require 'rack-flash'
 
 Dir[File.join(__dir__, 'lib', '*.rb')].each {|file| require file }
 
 class ClothingEStore < Sinatra::Base
 
-  enable :sessions
-  use Rack::Flash
+  configure do
+    enable :sessions
+    use Rack::Flash
 
-  product_file  = 'data_files/products.txt'
-  voucher_file  = 'data_files/vouchers.txt'
-  
-  product_array = ObjectLoader.products_from(product_file)
-  voucher_array = ObjectLoader.vouchers_from(voucher_file)
+    product_file  = 'data_files/products.txt'
+    voucher_file  = 'data_files/vouchers.txt'
+    
+    product_array = ObjectLoader.products_from(product_file)
+    voucher_array = ObjectLoader.vouchers_from(voucher_file)
 
-  CART          = ShoppingCart.new
-  PRODUCTS      = DatabaseTable.new( product_array )
-  VOUCHERS      = DatabaseTable.new( voucher_array )
+    CART          = ShoppingCart.new
+    PRODUCTS      = DatabaseTable.new(product_array)
+    VOUCHERS      = DatabaseTable.new(voucher_array)
+  end
 
   get '/' do
     @products = PRODUCTS.all
@@ -33,7 +36,7 @@ class ClothingEStore < Sinatra::Base
     if product.in_stock?
       CART.add(product.pop_single)
     else
-      flash[:error] = 'The selected product is out of stock'
+      out_of_stock_error
     end
 
     redirect '/'
@@ -53,12 +56,26 @@ class ClothingEStore < Sinatra::Base
     status = voucher.apply_to(CART)
 
     if status == :fail
-      json({ status: 'fail' })
+      fail_response
     else
-      json({ status: 'ok', discount: CART.discount, total: CART.total })
+      voucher_response
     end
   end
 
   # start the server if ruby file executed directly
   run! if app_file == $0
+
+  private
+
+  def out_of_stock_error
+    flash[:error] = 'The selected product is out of stock'
+  end
+
+  def fail_response
+    json({ status: 'fail' })
+  end
+
+  def voucher_response
+    json({ status: 'ok', discount: CART.discount, total: CART.total })
+  end
 end
