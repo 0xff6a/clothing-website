@@ -12,7 +12,7 @@ Feature:
   @javascript
   Scenario: Checking out
     Given I have added products to my cart
-    When I click "Checkout"
+    When I checkout
     Then I can see what vouchers are available
 
   @javascript
@@ -24,7 +24,8 @@ Feature:
 
   @javascript
   Scenario: Invalid voucher
-    Given I have checked out
+    Given I have purchased a product
+      And I have checked out
     When I apply a invalid voucher
     Then I will receive an alert that my voucher is invalid
 
