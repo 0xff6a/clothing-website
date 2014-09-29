@@ -7,15 +7,20 @@ Dir[File.join(__dir__, 'lib', '*.rb')].each {|file| require file }
 
 class ClothingEStore < Sinatra::Base
 
+  def self.product_array
+    ObjectLoader.products_from(PRODUCT_FILE)
+  end
+
+  def self.voucher_array
+    ObjectLoader.vouchers_from(VOUCHER_FILE)
+  end
+
   configure do
     enable :sessions
     use Rack::Flash
 
-    product_file  = 'data_files/products.txt'
-    voucher_file  = 'data_files/vouchers.txt'
-    
-    product_array = ObjectLoader.products_from(product_file)
-    voucher_array = ObjectLoader.vouchers_from(voucher_file)
+    PRODUCT_FILE  = 'data_files/products.txt'
+    VOUCHER_FILE  = 'data_files/vouchers.txt'
 
     CART          = ShoppingCart.new
     PRODUCTS      = DatabaseTable.new(product_array)
@@ -78,4 +83,5 @@ class ClothingEStore < Sinatra::Base
   def voucher_response
     json({ status: 'ok', discount: CART.discount, total: CART.total })
   end
+
 end
