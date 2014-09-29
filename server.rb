@@ -7,6 +7,14 @@ Dir[File.join(__dir__, 'lib', '*.rb')].each {|file| require file }
 
 class ClothingEStore < Sinatra::Base
 
+  configure do
+    enable :sessions
+    use Rack::Flash
+
+    PRODUCT_FILE  = 'data_files/products.txt'
+    VOUCHER_FILE  = 'data_files/vouchers.txt'
+  end
+
   def self.product_array
     ObjectLoader.products_from(PRODUCT_FILE)
   end
@@ -15,17 +23,9 @@ class ClothingEStore < Sinatra::Base
     ObjectLoader.vouchers_from(VOUCHER_FILE)
   end
 
-  configure do
-    enable :sessions
-    use Rack::Flash
-
-    PRODUCT_FILE  = 'data_files/products.txt'
-    VOUCHER_FILE  = 'data_files/vouchers.txt'
-
-    CART          = ShoppingCart.new
-    PRODUCTS      = DatabaseTable.new(product_array)
-    VOUCHERS      = DatabaseTable.new(voucher_array)
-  end
+  CART          = ShoppingCart.new
+  PRODUCTS      = DatabaseTable.new(product_array)
+  VOUCHERS      = DatabaseTable.new(voucher_array)
 
   get '/' do
     @products = PRODUCTS.all
