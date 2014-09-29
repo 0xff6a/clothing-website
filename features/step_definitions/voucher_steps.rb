@@ -1,5 +1,21 @@
+Given(/^I have checked out$/) do
+  click_link "Checkout"
+end
+
+Given(/^I have not yet checkout out$/) do
+  
+end
+
+Then(/^I should not see what vouchers are available$/) do
+  expect(page).not_to have_css('.vouchers')
+end
+
 When(/^I apply a valid voucher$/) do
   first('.voucher').click_link('Redeem')
+end
+
+Then(/^I can see what vouchers are available$/) do
+  pending # express the regexp above with the code you wish you had
 end
 
 Then(/^I can view the discounted total price of my products$/) do
