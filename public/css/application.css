@@ -62,6 +62,19 @@ a {
   border-radius: 4px;
 }
 
+.cart h3 {
+  display: inline-block;
+}
+
+#checkout_btn {
+  margin-left: 200px;
+  border-radius: 4px;
+  background-color: black;
+  color: #D1E751;
+  padding: 6px 10px;
+  font-size: 16px;
+}
+
 .vouchers {
   width: 450px;
   float: left;
@@ -69,6 +82,11 @@ a {
   margin: 0px 0px 0px 10px;
   padding: 3px;
   border-radius: 4px;
+}
+
+.redeemed_msg {
+  font-size: 12px;
+  color: grey;
 }
 
 .hidden {
