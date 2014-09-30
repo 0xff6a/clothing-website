@@ -24,7 +24,7 @@ class ClothingEStore < Sinatra::Base
 
   get '/' do
     @products = PRODUCTS.all
-    @cart     = CART
+    @cart     = CART.clear_discounts
     @vouchers = VOUCHERS.all
     
     erb :index
