@@ -11,11 +11,14 @@ Ruby 2.1.2
 Features
 --------
 
+(See feature tests for full description)
 
 Workings
 --------
-- Could have added full logic to handle applying vouchers and then removing discounts if items are removed that render them invalid
-- However out the scope of user stories so decided to simply lock shopping cart once the user clicks checkout and apply vouchers subsequently
+- Did not add any handling for discounted products (e.g green short sleeve shirt) as was out of scope of user stories
+- Could have added full logic to handle applying vouchers and then removing discounts if items are removed that render them invalid. However this was out of the scope of user stories so decided to simply lock shopping cart once the user clicks checkout and apply vouchers subsequently
+- Vouchers are applied using an AJAX request, so to maintain consistency, the cart discounts are reset to zero if the page is reloaded
+- Given more time would have handled adding/removing products from carts using AJAX requests also
 
 Classes:
 --------
