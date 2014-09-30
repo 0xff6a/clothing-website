@@ -40,7 +40,7 @@ a {
   float: left;
   display: inline-block;
   background-color: white;
-  margin: 10px;
+  margin: 10px 10px 10px 20px;
   padding: 3px;
   border-radius: 4px;
   padding-top: 10px;
@@ -50,6 +50,7 @@ a {
 .container table {
   margin: 0 auto;
   text-align: justify;
+  width: 625px;
 }
 
 .cart {
@@ -64,10 +65,31 @@ a {
 
 .cart h3 {
   display: inline-block;
+  font-weight: bold;
+  margin-left: 5px;
+  margin-top: 10px;
+}
+
+.cart_table {
+  text-align: left;
+}
+
+.cart_quantity {
+  text-align: center;
+}
+
+#text_total {
+  color: grey;
+}
+
+.remove_product {
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 0.4;
 }
 
 #checkout_btn {
-  margin-left: 200px;
+  margin-left: 235px;
   border-radius: 4px;
   background-color: black;
   color: #D1E751;
@@ -84,6 +106,16 @@ a {
   border-radius: 4px;
 }
 
+.vouchers h3 {
+  font-weight: bold;
+  margin: 5px;
+}
+
+.vouchers table {
+  width: 450px;
+}
+
+
 .redeemed_msg {
   font-size: 12px;
   color: grey;
@@ -94,7 +126,7 @@ a {
 }
 
 .alert {
-  height: 50px;
+  height: 30px;
 }
 
 .alert_message {

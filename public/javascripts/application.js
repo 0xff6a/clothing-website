@@ -16,6 +16,7 @@ $(document).ready(function () {
       if (response.status === 'ok') {
         applyDiscount(response.discount, response.total);
         disableVoucher(voucherLink);
+        removeErrorIfPresent();
       } else {
         displayVoucherError();
       }
@@ -44,6 +45,11 @@ $(document).ready(function () {
 
   function displayVoucherError() {
     $('.alert').empty().append("<h3 class='alert_message'>The selected voucher is not valid</h3>");
+  }
+
+  function removeErrorIfPresent()
+  {
+    $('.alert').empty();
   }
 
   function formatCCY(value) {
