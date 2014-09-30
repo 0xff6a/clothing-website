@@ -18,6 +18,16 @@ describe ShoppingCart do
 
   end
 
+  context '#clear_discounts' do
+
+    it 'can clear discounts from a cart' do
+      cart.discount = 10
+      cart.clear_discounts
+      expect(cart.discount).to eq 0
+    end
+
+  end
+
   context '#add' do
 
     it 'a product can be added to the cart' do

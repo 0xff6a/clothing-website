@@ -47,7 +47,7 @@ $(document).ready(function () {
   }
 
   function formatCCY(value) {
-    return ('£' + Number(value).toFixed(2));
-  };
+    return '£' + Number(value).toFixed(2);
+  }
 
 });

@@ -12,6 +12,11 @@ class ShoppingCart
     @discount = 0
   end
 
+  def clear_discounts
+    @discount = 0
+    self
+  end
+
   def add(product)
     contains?(product) ? add_to_stock(product) : add_new(product)
   end
