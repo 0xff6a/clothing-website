@@ -25,7 +25,7 @@ Classes:
 - DatabaseTable: mock database functionality
 - ObjectLoader: creates array of objects from flat file
 - Product: basic unit of data of the site
-- Shopping cart: holds selected products and calculates total price
+- ShoppingCart: holds selected products and calculates total price
 - Voucher: produces discounts when applied to a shopping cart
 - ClothingEStore: sinatra application
 
