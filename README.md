@@ -11,7 +11,7 @@ Ruby 2.1.2
 Features
 --------
 
-(See feature tests for full description)
+See [feature tests](https://github.com/foxjerem/clothing-website/tree/master/features) for full description 
 
 Workings
 --------
