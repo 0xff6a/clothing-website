@@ -9,16 +9,21 @@ $(document).ready(function () {
 
   $('.redeem_btn').on('click', function(event) {
     var voucherLink = $(this);
+   
     event.preventDefault();
 
     $.get(this.href, function(response) {
       
       if (response.status === 'ok') {
+        
         applyDiscount(response.discount, response.total);
         disableVoucher(voucherLink);
         removeErrorIfPresent();
+
       } else {
+
         displayVoucherError();
+
       }
     
     });
