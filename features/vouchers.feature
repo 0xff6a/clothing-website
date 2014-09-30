@@ -26,7 +26,7 @@ Feature:
   Scenario: Invalid voucher
     Given I have purchased a product
       And I have checked out
-    When I apply a invalid voucher
+    When I apply an invalid voucher
     Then I will receive an alert that my voucher is invalid
 
   @javascript

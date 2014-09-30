@@ -38,7 +38,7 @@ Given(/^I have purchased a product$/) do
   page.all('.product')[1].click_link('Add to cart')
 end
 
-When(/^I apply a invalid voucher$/) do
+When(/^I apply an invalid voucher$/) do
   page.all('.voucher')[2].click_link('Redeem')
 end
 

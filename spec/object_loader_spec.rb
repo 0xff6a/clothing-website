@@ -8,7 +8,7 @@ describe ObjectLoader do
   context '#products_from' do
 
     it 'can create an array of products from a data file' do
-      expect(File).to receive(:read).and_return(data_string)
+      allow(File).to receive(:read).and_return(data_string)
       product = ObjectLoader.products_from('dummy.txt').first
       expect(product.price).to eq 540.00
     end
@@ -18,7 +18,7 @@ describe ObjectLoader do
   context '#vouchers_from' do
 
     it 'can create an array from vouchers from a data file' do
-      expect(File).to receive(:read).and_return(data_string2)
+      allow(File).to receive(:read).and_return(data_string2)
       voucher = ObjectLoader.vouchers_from('dummy.txt').first
       expect(voucher.conditions).to eq ['total > 75', 'has_footwear_item?']
     end

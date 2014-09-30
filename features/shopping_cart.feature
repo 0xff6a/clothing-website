@@ -1,6 +1,6 @@
 Feature: 
   As a user
-  I want to be able to add/remove products to my shopping cart
+  I want to be able to add/remove products in my shopping cart
   So that I can place an order
 
   Scenario: Adding to the cart
