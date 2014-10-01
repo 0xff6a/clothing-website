@@ -2,7 +2,7 @@ Clothing Website
 ================
 [![Code Climate](https://codeclimate.com/github/foxjerem/clothing-website/badges/gpa.svg)](https://codeclimate.com/github/foxjerem/clothing-website) [![Test Coverage](https://codeclimate.com/github/foxjerem/clothing-website/badges/coverage.svg)](https://codeclimate.com/github/foxjerem/clothing-website)
 
-Technical test building a simple online shopping website for a clothing retailer
+Technical test building a simple online shopping website for a clothing retailer. Deployed to heroku @ http://obscure-shore-1072.herokuapp.com/
 
 Ruby Version
 ------------
